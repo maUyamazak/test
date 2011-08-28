@@ -22,6 +22,7 @@
 
 - (void)dealloc
 {
+    [YokohamaButton release];
     [super dealloc];
 }
 
@@ -43,6 +44,8 @@
 
 - (void)viewDidUnload
 {
+    [YokohamaButton release];
+    YokohamaButton = nil;
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -60,7 +63,16 @@
 - (IBAction)yokohamaTapped:(id)sender {
     NSDictionary * placeDict = [[NSDictionary alloc]initWithObjectsAndKeys:[NSNumber numberWithInt:46], @"placeNumber",nil];
     
+    [UIView beginAnimations:@"YokohamaButtonが移動するアニメーション" context:self.view]; 
+    
+    
     [[NSNotificationCenter defaultCenter]postNotificationName:@"BUTTON_TAPPED" object:nil userInfo:placeDict];
+     [YokohamaButton setFrame:CGRectMake(10,YokohamaButton.frame.origin.y, YokohamaButton.frame.size.width, YokohamaButton.frame.size.height)]; 
+    
+    [UIView setAnimationCurve:UIViewAnimationCurveEaseIn];
+    [UIView setAnimationDuration:2.0];
+    
+    [UIView commitAnimations]; 
     
 }
 
@@ -68,9 +80,12 @@
  tan_go
  */
 - (IBAction)tan_goTapped:(id)sender {
+    //YokohamaButtonが押されたら、YokohamaButtonの位置を変えよう。
+    
     NSDictionary * placeDict = [[NSDictionary alloc]initWithObjectsAndKeys:[NSNumber numberWithInt:48], @"placeNumber",nil];
     
     [[NSNotificationCenter defaultCenter]postNotificationName:@"BUTTON_TAPPED" object:nil userInfo:placeDict];
+   
 }
 
 - (IBAction)TokyoTapped:(id)sender { 

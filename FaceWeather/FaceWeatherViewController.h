@@ -11,6 +11,7 @@
 
 @interface FaceWeatherViewController : UIViewController {
     
+    IBOutlet UIButton *YokohamaButton;
 }
 
 - (IBAction)yokohamaTapped:(id)sender;

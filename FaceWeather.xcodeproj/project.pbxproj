@@ -81,7 +81,7 @@
 		21C23D0613E13AD7003DAFF9 /* snow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = snow.png; sourceTree = "<group>"; };
 		21C23D0D13E13BA8003DAFF9 /* LBXMLParserController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LBXMLParserController.h; sourceTree = "<group>"; };
 		21C23D0E13E13BA8003DAFF9 /* LBXMLParserController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LBXMLParserController.m; sourceTree = "<group>"; };
-		21C23D1013E13F6B003DAFF9 /* FaceWeatherViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; name = FaceWeatherViewController.h; path = ../../FaceWeatherViewController.h; sourceTree = "<group>"; };
+		21C23D1013E13F6B003DAFF9 /* FaceWeatherViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FaceWeatherViewController.h; path = ../../FaceWeatherViewController.h; sourceTree = "<group>"; };
 		21C23D1113E13F6B003DAFF9 /* FaceWeatherViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FaceWeatherViewController.m; sourceTree = "<group>"; };
 		21C23D1213E13F6B003DAFF9 /* FaceWeatherViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FaceWeatherViewController.xib; sourceTree = "<group>"; };
 		21C23E0513E16383003DAFF9 /* tan_go.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tan_go.png; sourceTree = "<group>"; };
