@@ -23,6 +23,8 @@
 - (void)dealloc
 {
     [YokohamaButton release];
+    [nowDate release];
+    [TomorrowSwitch release];
     [super dealloc];
 }
 
@@ -39,6 +41,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [nowDate setText:[NSString stringWithFormat:@"今日は%@", [NSDate date]]
+     ];
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -46,6 +50,12 @@
 {
     [YokohamaButton release];
     YokohamaButton = nil;
+    [nowDate release];
+    nowDate = nil;
+    [TomorrowSwitch release];
+    TomorrowSwitch = nil;
+    [TomorrowSwitch release];
+    TomorrowSwitch = nil;
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -60,13 +70,12 @@
 /**
  inoue
  */
+
 - (IBAction)yokohamaTapped:(id)sender {
-    NSDictionary * placeDict = [[NSDictionary alloc]initWithObjectsAndKeys:[NSNumber numberWithInt:46], @"placeNumber",nil];
-    
+        [self getWeather:48];  
     [UIView beginAnimations:@"YokohamaButtonが移動するアニメーション" context:self.view]; 
     
     
-    [[NSNotificationCenter defaultCenter]postNotificationName:@"BUTTON_TAPPED" object:nil userInfo:placeDict];
      [YokohamaButton setFrame:CGRectMake(10,YokohamaButton.frame.origin.y, YokohamaButton.frame.size.width, YokohamaButton.frame.size.height)]; 
     
     [UIView setAnimationCurve:UIViewAnimationCurveEaseIn];
@@ -89,9 +98,41 @@
 }
 
 - (IBAction)TokyoTapped:(id)sender { 
-    NSDictionary * placeDict = [[NSDictionary alloc]initWithObjectsAndKeys:[NSNumber numberWithInt:63], @"placeNumber",nil];
     
-    [[NSNotificationCenter defaultCenter]postNotificationName:@"BUTTON_TAPPED" object:nil userInfo:placeDict];
+    [self getWeather:63];
+   
+
+    
+}
+
+
+//- (void) getWeather:(int)wheatherPlaceNumber {
+//    NSString * todayOrTomorrow = @"today";
+//    
+//    if([TomorrowSwitch isOn]) {
+//        todayOrTomorrow = @"dayaftertomorrow";
+//    }
+//    
+//    NSDictionary * placeDict = [[NSDictionary alloc]initWithObjectsAndKeys:[NSNumber numberWithInt: wheatherPlaceNumber], @"placeNumber", 
+//                                todayOrTomorrow, @"todayOrTomorrow",
+//                                nil];
+//    
+//     [[NSNotificationCenter defaultCenter]postNotificationName:@"BUTTON_TAPPED" object:nil userInfo:placeDict];
+//    
+//}
+
+
+- (void) getWeather:(int)weatherPlaceNumber {
+    NSString * todayOrTomorrow = @"today";
+     
+       if([TomorrowSwitch isOn]) {
+          todayOrTomorrow = @"dayaftertomorrow";
+      }
+      
+      NSDictionary * placeDict = [[NSDictionary alloc]initWithObjectsAndKeys:[NSNumber numberWithInt: weatherPlaceNumber], @"placeNumber", 
+                                 todayOrTomorrow, @"todayOrTomorrow",
+                                  nil];
+ [[NSNotificationCenter defaultCenter]postNotificationName:@"BUTTON_TAPPED" object:nil userInfo:placeDict];
 }
 
 
